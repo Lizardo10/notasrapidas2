@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
+      id: '/',
       name: 'Notas Rápidas - Noty.live',
       short_name: 'Noty',
       description: 'Aplicación de notas rápida y personal. Crea, edita y gestiona tus notas de forma sencilla. Funciona completamente offline.',
@@ -28,12 +29,28 @@ export default defineNuxtConfig({
           purpose: 'any'
         },
         {
+          src: '/icon-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable'
+        },
+        {
           src: '/icon-512x512.png',
           sizes: '512x512',
           type: 'image/png',
-          purpose: 'any maskable'
+          purpose: 'any'
+        },
+        {
+          src: '/icon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable'
         }
-      ]
+      ],
+      screenshots: [],
+      categories: ['productivity', 'utilities'],
+      iarc_rating_id: '',
+      prefer_related_applications: false
     },
     workbox: {
       navigateFallback: '/',
