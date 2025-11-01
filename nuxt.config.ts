@@ -54,9 +54,9 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,woff,woff2}'],
-      navigateFallback: '/index.html',
-      navigateFallbackDenylist: [/^\/api\//, /^\/_/, /^\/admin\//],
       cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -94,17 +94,6 @@ export default defineNuxtConfig({
             expiration: {
               maxEntries: 50,
               maxAgeSeconds: 60 * 60 * 24 * 30
-            }
-          }
-        },
-        {
-          urlPattern: ({ request }) => request.destination === 'document',
-          handler: 'NetworkFirst',
-          options: {
-            cacheName: 'pages-cache',
-            expiration: {
-              maxEntries: 50,
-              maxAgeSeconds: 60 * 60 * 24
             }
           }
         }
