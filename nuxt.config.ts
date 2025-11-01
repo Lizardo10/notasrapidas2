@@ -54,6 +54,9 @@ export default defineNuxtConfig({
     },
     workbox: {
       globPatterns: ['**/*.{js,css,html,png,svg,ico,jpg,jpeg,woff,woff2}'],
+      navigateFallback: '/index.html',
+      navigateFallbackDenylist: [/^\/api\//, /^\/_/, /^\/admin\//],
+      cleanupOutdatedCaches: true,
       runtimeCaching: [
         {
           urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -62,7 +65,7 @@ export default defineNuxtConfig({
             cacheName: 'google-fonts-cache',
             expiration: {
               maxEntries: 10,
-              maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              maxAgeSeconds: 60 * 60 * 24 * 365
             },
             cacheableResponse: {
               statuses: [0, 200]
@@ -76,7 +79,7 @@ export default defineNuxtConfig({
             cacheName: 'gstatic-fonts-cache',
             expiration: {
               maxEntries: 10,
-              maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
+              maxAgeSeconds: 60 * 60 * 24 * 365
             },
             cacheableResponse: {
               statuses: [0, 200]
@@ -90,7 +93,18 @@ export default defineNuxtConfig({
             cacheName: 'images-cache',
             expiration: {
               maxEntries: 50,
-              maxAgeSeconds: 60 * 60 * 24 * 30 // <== 30 days
+              maxAgeSeconds: 60 * 60 * 24 * 30
+            }
+          }
+        },
+        {
+          urlPattern: ({ request }) => request.destination === 'document',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'pages-cache',
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24
             }
           }
         }
@@ -99,7 +113,6 @@ export default defineNuxtConfig({
     devOptions: {
       enabled: true,
       suppressWarnings: true,
-      navigateFallback: '/',
       type: 'module'
     },
     
