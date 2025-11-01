@@ -27,8 +27,8 @@ ssh root@TU_IP_DROPLET
 # Actualizar sistema
 apt update && apt upgrade -y
 
-# Instalar Node.js 18
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+# Instalar Node.js 20 (requerido para Nuxt 3.20.0)
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
 
 # Instalar PM2
@@ -159,6 +159,7 @@ mkdir -p logs
 
 # Iniciar aplicación con PM2
 pm2 start ecosystem.config.js
+# Si da error, usa: pm2 start npm --name "app-notas-pwa" -- start
 
 # Verificar que está corriendo
 pm2 status
@@ -438,9 +439,31 @@ dpkg-reconfigure -plow unattended-upgrades
 
 ### Problema: Error al instalar Node.js
 ```bash
-# Ejecutar de nuevo el comando
-curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+# Ejecutar de nuevo el comando (Node.js 20 requerido)
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 apt install -y nodejs
+
+# Verificar versión (debe ser v20.x.x o superior)
+node --version
+```
+
+### Problema: Nuxt requiere Node.js 20 pero tienes 18
+```bash
+# Eliminar Node.js 18
+apt remove nodejs npm -y
+apt autoremove -y
+
+# Instalar Node.js 20
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+apt install -y nodejs
+
+# Verificar
+node --version
+npm --version
+
+# Limpiar e reinstalar
+rm -rf node_modules package-lock.json
+npm install --omit=dev
 ```
 
 ### Problema: PM2 no inicia la aplicación

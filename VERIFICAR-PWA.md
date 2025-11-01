@@ -1,83 +1,73 @@
 # ✅ Verificar que la PWA Funciona Correctamente
 
-## 🔍 Pasos para Verificar
+## 📖 Guía Rápida
 
-### 1. Compilar para Producción
+Para una guía detallada paso a paso, consulta: **[PROBAR-PWA.md](./PROBAR-PWA.md)**
 
-```bash
-# Detén el servidor dev (Ctrl+C)
-npm run build
-```
+## 🔍 Resumen de Verificación
 
-Esto generará:
-- Manifest completo de PWA
-- Service Worker
-- Archivos optimizados
+### 1. Funcionalidades Básicas
 
-### 2. Probar en Producción
+1. **Crear una nota:** Escribe título y descripción, haz clic en "Agregar Nota"
+2. **Editar una nota:** Haz clic en "✏️ Editar", modifica y guarda
+3. **Eliminar una nota:** Haz clic en "🗑️ Eliminar" y confirma
 
-```bash
-npm run preview
-```
+### 2. Abrir DevTools
 
-Abre `http://localhost:4173` (o el puerto que indique)
+- Presiona **F12** (o `Ctrl + Shift + I` / `Cmd + Option + I`)
+- Ve a la pestaña **"Application"**
 
-### 3. Verificar en DevTools
+### 3. Verificar Service Worker
 
-Abre DevTools (F12) y verifica:
+- En el menú izquierdo: **Application → Service Workers**
+- **✅ Debe mostrar:** "activated and is running"
 
-#### ✅ Manifest (Application → Manifest)
-- Debería mostrar información completa
-- Nombre: "Notas Rápidas"
-- Icons: Deben aparecer
-- Start URL: "/"
-- Display: "standalone"
+### 4. Verificar Manifest
 
-#### ✅ Service Workers (Application → Service Workers)
-- Debe estar "activated and is running"
-- Estado: "activated"
-
-#### ✅ Local Storage (Application → Storage → Local Storage)
-- Debe existir la clave "notas-rapidas"
-
-### 4. Probar Offline
-
-1. DevTools → Network → Marca "Offline"
-2. Recarga la página
-3. **Debería funcionar sin conexión** ✅
+- En el menú izquierdo: **Application → Manifest**
+- **✅ Debe mostrar:** Nombre, descripción, iconos, etc.
 
 ### 5. Probar Instalación
 
-#### En Chrome/Edge Desktop:
-- Busca el ícono de instalación (⊕) en la barra de direcciones
+**Chrome/Edge Desktop:**
+- Busca icono **"⊕"** en la barra de direcciones
 - O menú → "Instalar Notas Rápidas"
 
-#### En Android:
+**Android:**
 - Menú (⋮) → "Agregar a pantalla de inicio"
 
-#### En iOS:
+**iOS:**
 - Compartir (□↑) → "Agregar a pantalla de inicio"
+
+### 6. Probar Offline
+
+1. DevTools → **Network** → Activa **"Offline"**
+2. Recarga la página (F5)
+3. **✅ Debe funcionar sin conexión**
 
 ## 📋 Checklist Final
 
-- [ ] Manifest aparece en DevTools
+- [ ] Puedo crear, editar y eliminar notas
+- [ ] Las notas persisten al recargar
 - [ ] Service Worker está activo
+- [ ] Manifest muestra información correcta
 - [ ] Funciona offline
-- [ ] Se puede instalar
-- [ ] Las notas se guardan en localStorage
-- [ ] Puedes crear, editar y eliminar notas
-- [ ] Todo funciona correctamente
+- [ ] Se puede instalar (o aparece la opción)
 
-## 🚀 Cuando Todo Esté Listo
+## 🚀 Probar en Producción
 
-Una vez que verifiques que todo funciona:
+Para verificar exactamente como funcionará en producción:
 
 ```bash
+# Compilar
 npm run build
+
+# Ejecutar preview
+npm run preview
 ```
 
-Y luego sigue las instrucciones en `DEPLOYMENT.md` para subir a Digital Ocean.
+Abre `http://localhost:4173` y repite las verificaciones.
 
 ---
 
-**Nota:** El manifest solo aparece completo cuando está compilado para producción, no en modo desarrollo.
+**📖 Para instrucciones detalladas, ver:** [PROBAR-PWA.md](./PROBAR-PWA.md)

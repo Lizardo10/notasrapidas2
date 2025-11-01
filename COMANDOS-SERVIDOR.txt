@@ -1,0 +1,78 @@
+═══════════════════════════════════════════════════════════
+  COMANDOS PARA EJECUTAR EN EL SERVIDOR
+═══════════════════════════════════════════════════════════
+
+1. VER LOGS DEL ERROR (IMPORTANTE):
+────────────────────────────────────
+pm2 logs app-notas-pwa --lines 50
+
+Esto te mostrará el error exacto que está causando el crash.
+
+
+2. DETENER Y ELIMINAR PROCESO ACTUAL:
+─────────────────────────────────────
+pm2 stop app-notas-pwa
+pm2 delete app-notas-pwa
+
+
+3. VERIFICAR QUE ESTÁ COMPILADO:
+─────────────────────────────────
+cd /var/www/notasrapidas2
+ls -la .output
+
+Si no existe .output, compilar:
+npm run build
+
+
+4. PROBAR MANUALMENTE:
+──────────────────────
+cd /var/www/notasrapidas2
+node_modules/.bin/nuxt start
+
+Si funciona, presiona Ctrl+C y continúa.
+Si NO funciona, verás el error exacto aquí.
+
+
+5. INICIAR CON PM2:
+───────────────────
+cd /var/www/notasrapidas2
+pm2 start ecosystem.config.js
+
+# Ver logs en tiempo real
+pm2 logs app-notas-pwa
+
+
+6. VERIFICAR ESTADO:
+────────────────────
+pm2 status
+pm2 info app-notas-pwa
+
+
+═══════════════════════════════════════════════════════════
+  POSIBLES CAUSAS DEL ERROR
+═══════════════════════════════════════════════════════════
+
+❌ Proyecto no compilado (.output no existe)
+✅ Solución: npm run build
+
+❌ Node.js versión incorrecta (necesita v20)
+✅ Solución: Ver SOLUCION-NODE.md
+
+❌ Puerto 3000 ocupado
+✅ Solución: lsof -i :3000 o cambiar puerto
+
+❌ Dependencias faltantes
+✅ Solución: npm install --omit=dev
+
+❌ Error en el código
+✅ Solución: Ver logs con pm2 logs
+
+
+═══════════════════════════════════════════════════════════
+  COMPARTE ESTOS RESULTADOS:
+═══════════════════════════════════════════════════════════
+
+1. pm2 logs app-notas-pwa --lines 50
+2. node --version
+3. ls -la .output (si existe o no)
+4. node_modules/.bin/nuxt start (qué error muestra)
