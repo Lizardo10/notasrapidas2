@@ -1,0 +1,39 @@
+═══════════════════════════════════════════════════════════
+  REINICIAR EL SERVIDOR - PASOS
+═══════════════════════════════════════════════════════════
+
+PASO 1: Detener el servidor actual
+-----------------------------------
+En la terminal donde está corriendo npm run dev:
+  • Presiona Ctrl + C
+  • Espera a que se detenga completamente
+
+
+PASO 2: Iniciar de nuevo
+------------------------
+Ejecuta:
+  npm run dev
+
+
+PASO 3: Abrir en el navegador
+------------------------------
+Abre:
+  http://localhost:3001
+
+(El puerto puede ser 3001 o 3000 dependiendo de lo que diga la terminal)
+
+
+═══════════════════════════════════════════════════════════
+  ¡AHORA DEBERÍA FUNCIONAR!
+═══════════════════════════════════════════════════════════
+
+Lo que verás:
+  • Fondo azul/morado con degradado
+  • Título: "📝 Notas Rápidas"
+  • Cuadro de texto para escribir
+  • Botón "➕ Agregar Nota"
+
+Si aún no funciona:
+  • Presiona Ctrl + F5 en el navegador
+  • Revisa la consola del navegador (F12)
+═══════════════════════════════════════════════════════════

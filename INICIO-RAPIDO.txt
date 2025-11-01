@@ -1,0 +1,58 @@
+===========================================
+INICIO RÁPIDO - Notas Rápidas PWA
+===========================================
+
+PASO 1: Abrir Terminal/PowerShell
+----------------------------------
+Abre PowerShell o CMD en la carpeta del proyecto:
+C:\Users\Lizar\Documents\Todos mis proyectos\tareas_ingeKeller\AppNotas2
+
+
+PASO 2: Ejecutar Servidor de Desarrollo
+----------------------------------------
+Ejecuta este comando:
+
+npm run dev
+
+Deberías ver algo como:
+✓ Nuxt 3.x.x ready in xxx ms
+➜ Local:    http://localhost:3000/
+
+
+PASO 3: Abrir en el Navegador
+-------------------------------
+Abre tu navegador y ve a:
+
+http://localhost:3000
+
+
+¿Qué deberías ver?
+------------------
+- Un fondo con gradiente azul/morado
+- Título: "📝 Notas Rápidas"
+- Un área de texto para escribir notas
+- Botón "➕ Agregar Nota"
+
+
+Si no funciona:
+---------------
+1. Verifica que no haya errores en la terminal
+2. Verifica que el puerto 3000 no esté en uso
+3. Prueba con: npm run build (y luego npm run preview)
+4. Verifica que los iconos estén en public/
+
+
+Iconos (YA ESTÁN CREADOS)
+--------------------------
+✅ icon-192x192.png
+✅ icon-512x512.png
+
+
+Comandos Útiles:
+----------------
+npm run dev      - Servidor de desarrollo
+npm run build    - Compilar para producción
+npm run preview  - Previsualizar producción
+Ctrl + C         - Detener servidor
+
+===========================================

@@ -1,0 +1,81 @@
+export default defineNuxtConfig({
+  compatibilityDate: '2024-01-01',
+  devtools: { enabled: false },
+  
+  modules: [
+    '@vite-pwa/nuxt'
+  ],
+
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
+      name: 'Notas Rápidas - Noty.live',
+      short_name: 'Noty',
+      description: 'Aplicación de notas rápida y personal. Crea, edita y gestiona tus notas de forma sencilla. Funciona completamente offline.',
+      theme_color: '#4A90E2',
+      background_color: '#667eea',
+      display: 'standalone',
+      orientation: 'portrait',
+      scope: '/',
+      start_url: '/',
+      lang: 'es',
+      dir: 'ltr',
+      icons: [
+        {
+          src: '/icon-192x192.png',
+          sizes: '192x192',
+          type: 'image/png'
+        },
+        {
+          src: '/icon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'any maskable'
+        }
+      ]
+    },
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+    },
+    devOptions: {
+      enabled: true,
+      suppressWarnings: true,
+      navigateFallback: '/',
+      type: 'module'
+    },
+    
+    strategies: 'generateSW'
+  },
+
+  app: {
+    head: {
+      title: 'Notas Rápidas',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
+        { name: 'description', content: 'Notas Rápidas - Aplicación web progresiva para gestionar tus notas. Crea, edita y organiza tus notas de forma sencilla. Funciona completamente offline en noty.live' },
+        { name: 'keywords', content: 'notas, PWA, aplicación web, offline, noty.live, notas rápidas' },
+        { name: 'author', content: 'Noty.live' },
+        { name: 'theme-color', content: '#4A90E2' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+        { name: 'apple-mobile-web-app-title', content: 'Noty - Notas Rápidas' },
+        { property: 'og:title', content: 'Notas Rápidas - Noty.live' },
+        { property: 'og:description', content: 'Aplicación de notas rápida que funciona offline' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://noty.live' },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: 'Notas Rápidas - Noty.live' },
+        { name: 'twitter:description', content: 'Aplicación de notas rápida que funciona offline' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'apple-touch-icon', href: '/icon-192x192.png' }
+      ]
+    }
+  },
+
+  ssr: false
+})

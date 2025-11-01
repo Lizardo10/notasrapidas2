@@ -1,0 +1,22 @@
+{
+  "name": "app-notas-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "create-icons": "node create-icons.js"
+  },
+  "dependencies": {
+    "@vite-pwa/nuxt": "^1.0.7",
+    "nuxt": "^3.13.0",
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest"
+  }
+}

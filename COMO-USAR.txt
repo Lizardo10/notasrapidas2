@@ -1,0 +1,94 @@
+╔═══════════════════════════════════════════════════════════╗
+║   CÓMO USAR LA APLICACIÓN - PASO A PASO                  ║
+╚═══════════════════════════════════════════════════════════╝
+
+PASO 1: El servidor YA está funcionando
+----------------------------------------
+Tu terminal muestra:
+  ✓ Nuxt 3.20.0 ready
+  ➜ Local:    http://localhost:3001/
+
+¡El servidor ESTÁ CORRIENDO! ✓
+
+
+PASO 2: Abrir en el navegador
+-------------------------------
+1. Abre tu navegador (Chrome, Edge, Firefox, etc.)
+
+2. En la barra de direcciones, escribe exactamente:
+   http://localhost:3001
+
+3. Presiona ENTER
+
+
+PASO 3: ¿Qué deberías ver?
+---------------------------
+Deberías ver:
+  • Fondo azul/morado con degradado
+  • Título grande: "📝 Notas Rápidas"
+  • Subtítulo: "Tu aplicación de notas personal"
+  • Un cuadro de texto grande donde puedes escribir
+  • Un botón azul: "➕ Agregar Nota"
+  • Mensaje: "No hay notas aún. ¡Crea tu primera nota!"
+
+
+PASO 4: Probar la aplicación
+-----------------------------
+1. Escribe algo en el cuadro de texto (ejemplo: "Mi primera nota")
+
+2. Haz clic en el botón "➕ Agregar Nota"
+
+3. Deberías ver tu nota aparecer abajo con:
+   • El texto que escribiste
+   • La fecha/hora
+   • Botones para editar (✏️) y eliminar (🗑️)
+
+
+SI NO VES NADA:
+---------------
+1. Verifica que escribiste: http://localhost:3001 (con http://)
+
+2. Presiona F12 en el navegador para abrir las herramientas de desarrollador
+   • Ve a la pestaña "Console"
+   • ¿Hay algún error en rojo? Copia y compártelo
+
+3. Prueba con otro navegador (Chrome, Edge, Firefox)
+
+
+SI VES UNA PÁGINA EN BLANCO:
+-----------------------------
+1. Presiona Ctrl + F5 (recargar forzado)
+
+2. Verifica en la terminal que no haya errores
+
+3. Espera unos segundos y recarga
+
+
+SI EL SERVIDOR SE DETUVO:
+--------------------------
+En la terminal donde está corriendo, deberías ver:
+  ✓ Nuxt ready
+  ➜ Local: http://localhost:3001/
+
+Si no ves esto, ejecuta de nuevo:
+  npm run dev
+
+
+COMANDOS ÚTILES:
+----------------
+  npm run dev      → Iniciar servidor
+  Ctrl + C         → Detener servidor (en la terminal)
+  F5               → Recargar página
+  Ctrl + F5        → Recargar forzado (sin caché)
+
+
+¿NECESITAS AYUDA?
+-----------------
+Si sigues sin ver nada, dime:
+1. ¿Qué ves cuando abres http://localhost:3001?
+2. ¿Hay algún error en la consola del navegador (F12)?
+3. ¿Qué dice la terminal donde corre npm run dev?
+
+╔═══════════════════════════════════════════════════════════╗
+║  ¡El servidor ESTÁ funcionando! Solo abre el navegador. ║
+╚═══════════════════════════════════════════════════════════╝
